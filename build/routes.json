@@ -15083,6 +15083,89 @@
         },
         "location": "learningenglish.ts",
         "module": "() => import('@/routes/bbc/learningenglish.ts')"
+      },
+      "/sport/:sport": {
+        "path": "/sport/:sport",
+        "name": "Sport",
+        "maintainers": [
+          "TonyRL"
+        ],
+        "example": "/bbc/sport/formula1",
+        "parameters": {
+          "sport": "The sport to fetch news for, can be found in the URL."
+        },
+        "radar": [
+          {
+            "source": [
+              "www.bbc.com/sport/:sport"
+            ]
+          }
+        ],
+        "categories": [
+          "traditional-media"
+        ],
+        "location": "sport.ts",
+        "module": "() => import('@/routes/bbc/sport.ts')"
+      },
+      "/zhongwen/topics/:topic/:variant?": {
+        "path": "/zhongwen/topics/:topic/:variant?",
+        "name": "Topics - BBC News 中文",
+        "maintainers": [
+          "TonyRL"
+        ],
+        "example": "/bbc/zhongwen/topics/ckr7mn6r003t",
+        "parameters": {
+          "topic": "The topic ID to fetch news for, can be found in the URL.",
+          "variant": {
+            "description": "The language variant.",
+            "default": "trad",
+            "options": [
+              {
+                "label": "简",
+                "value": "simp"
+              },
+              {
+                "label": "繁",
+                "value": "trad"
+              }
+            ]
+          }
+        },
+        "radar": [
+          {
+            "source": [
+              "www.bbc.com/zhongwen/topics/:topic/:variant"
+            ]
+          }
+        ],
+        "categories": [
+          "traditional-media"
+        ],
+        "location": "topic-zhongwen.ts",
+        "module": "() => import('@/routes/bbc/topic-zhongwen.ts')"
+      },
+      "/topics/:topic": {
+        "path": "/topics/:topic",
+        "name": "Topics",
+        "maintainers": [
+          "TonyRL"
+        ],
+        "example": "/bbc/topics/c77jz3md4rwt",
+        "parameters": {
+          "topic": "The topic ID to fetch news for, can be found in the URL."
+        },
+        "radar": [
+          {
+            "source": [
+              "www.bbc.com/news/topics/:topic"
+            ]
+          }
+        ],
+        "categories": [
+          "traditional-media"
+        ],
+        "location": "topic.ts",
+        "module": "() => import('@/routes/bbc/topic.ts')"
       }
     },
     "name": "BBC",
@@ -108698,6 +108781,41 @@
         "description": "| 国内滚动 | 宏观经济 | 金融新闻 | 地方经济 | 部委动态 | 今日财经 TOP10 |\n| -------- | -------- | -------- | -------- | -------- | -------------- |\n| 1686     | 1687     | 1690     | 1688     | 1689     | 3231           |",
         "location": "finance/china.ts",
         "module": "() => import('@/routes/sina/finance/china.ts')"
+      },
+      "/finance/rollnews/:lid?": {
+        "path": "/finance/rollnews/:lid?",
+        "categories": [
+          "new-media"
+        ],
+        "example": "/sina/finance/rollnews",
+        "parameters": {
+          "lid": "分区 id，见下表，默认为 `2519`"
+        },
+        "features": {
+          "requireConfig": false,
+          "requirePuppeteer": false,
+          "antiCrawler": false,
+          "supportBT": false,
+          "supportPodcast": false,
+          "supportScihub": false
+        },
+        "radar": [
+          {
+            "source": [
+              "finance.sina.com.cn/roll",
+              "finance.sina.com.cn/"
+            ],
+            "target": "/finance/rollnews"
+          }
+        ],
+        "name": "财经－滚动新闻",
+        "maintainers": [
+          "betterandbetterii"
+        ],
+        "url": "finance.sina.com.cn/roll",
+        "description": "| 财经 | 股市 | 美股 | 中国概念股 | 港股 | 研究报告 | 全球市场 | 外汇 |\n| ---- | ---- | ---- | ---------- | ---- | -------- | -------- | ---- |\n| 2519 | 2671 | 2672 | 2673       | 2674 | 2675     | 2676     | 2487 |",
+        "location": "finance/rollnews.ts",
+        "module": "() => import('@/routes/sina/finance/rollnews.ts')"
       },
       "/finance/stock/usstock/:cids?": {
         "path": "/finance/stock/usstock/:cids?",
